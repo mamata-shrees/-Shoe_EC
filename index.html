@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SoleStyle - Shoe Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            👟 SoleStyle
+        </div>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Cart
+            <span id="cart-count">0</span>
+        </button>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <p class="small-title">STEP INTO STYLE</p>
+
+            <h1>
+                Find Your<br>
+                Perfect Pair 👟
+            </h1>
+
+            <p>
+                Comfortable. Stylish. Made for every step.
+            </p>
+
+            <a href="#products" class="shop-btn">
+                Shop Now
+            </a>
+
+        </div>
+
+        <div class="hero-shoe">
+            👟
+        </div>
+
+    </section>
+
+
+    <section class="products" id="products">
+
+        <h2>Our Shoes</h2>
+
+        <p class="section-subtitle">
+            Pick your favorite pair
+        </p>
+
+        <div class="product-grid">
+
+            <!-- SHOE 1 -->
+
+            <div class="product-card">
+
+                <div class="shoe-image">
+                    👟
+                </div>
+
+                <h3>Air Runner</h3>
+
+                <p class="description">
+                    Lightweight everyday sneakers
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>Rs. 4,500</strong>
+
+                    <button onclick="addToCart(
+                        'Air Runner',
+                        4500
+                    )">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SHOE 2 -->
+
+            <div class="product-card">
+
+                <div class="shoe-image shoe-two">
+                    👞
+                </div>
+
+                <h3>Classic Walk</h3>
+
+                <p class="description">
+                    Elegant casual shoes
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>Rs. 5,200</strong>
+
+                    <button onclick="addToCart(
+                        'Classic Walk',
+                        5200
+                    )">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SHOE 3 -->
+
+            <div class="product-card">
+
+                <div class="shoe-image shoe-three">
+                    🥾
+                </div>
+
+                <h3>Mountain Pro</h3>
+
+                <p class="description">
+                    Strong shoes for outdoor adventures
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>Rs. 6,800</strong>
+
+                    <button onclick="addToCart(
+                        'Mountain Pro',
+                        6800
+                    )">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CART ================= -->
+
+    <div class="overlay" id="cart-overlay">
+
+        <div class="cart-box">
+
+            <button class="close-btn" onclick="closeCart()">
+                ✕
+            </button>
+
+            <h2>🛒 Your Cart</h2>
+
+            <div id="cart-items">
+                <p class="empty-cart">
+                    Your cart is empty.
+                </p>
+            </div>
+
+            <div class="cart-total">
+
+                <span>Total</span>
+
+                <strong id="cart-total">
+                    Rs. 0
+                </strong>
+
+            </div>
+
+            <button
+                class="checkout-btn"
+                onclick="openCheckout()"
+            >
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CHECKOUT ================= -->
+
+    <div class="overlay" id="checkout-overlay">
+
+        <div class="checkout-box">
+
+            <button class="close-btn" onclick="closeCheckout()">
+                ✕
+            </button>
+
+            <h2>Checkout 🛍️</h2>
+
+            <p class="checkout-subtitle">
+                Complete your order
+            </p>
+
+
+            <!-- CUSTOMER INFORMATION -->
+
+            <h3>👤 Customer Information</h3>
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="customer-name"
+                        placeholder="Your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="customer-email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Phone Number</label>
+
+                <input
+                    type="tel"
+                    id="customer-phone"
+                    placeholder="98XXXXXXXX"
+                    required
+                >
+
+            </div>
+
+
+            <!-- SHIPPING -->
+
+            <h3>📍 Shipping Address</h3>
+
+            <div class="form-group">
+
+                <label>Address</label>
+
+                <input
+                    type="text"
+                    id="address"
+                    placeholder="Street / Tole"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>City</label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        placeholder="Kathmandu"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Postal Code</label>
+
+                    <input
+                        type="text"
+                        id="postal-code"
+                        placeholder="44600"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <h3>💳 Card Payment</h3>
+
+            <div class="demo-warning">
+
+                ⚠️ Demo payment section.
+                Do not enter a real card number.
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Cardholder Name</label>
+
+                <input
+                    type="text"
+                    id="card-name"
+                    placeholder="Name on card"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Card Number</label>
+
+                <input
+                    type="text"
+                    id="card-number"
+                    maxlength="19"
+                    placeholder="1234 5678 9012 3456"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Expiry Date</label>
+
+                    <input
+                        type="text"
+                        id="expiry"
+                        placeholder="MM/YY"
+                        maxlength="5"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>CVV</label>
+
+                    <input
+                        type="password"
+                        id="cvv"
+                        placeholder="123"
+                        maxlength="4"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <div class="order-summary">
+
+                <h3>🧾 Order Summary</h3>
+
+                <div id="checkout-items"></div>
+
+                <div class="summary-total">
+
+                    <span>Total:</span>
+
+                    <strong id="checkout-total">
+                        Rs. 0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="place-order-btn"
+                onclick="placeOrder()"
+            >
+                🔒 Place Order
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SUCCESS ================= -->
+
+    <div class="success-overlay" id="success-overlay">
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>Order Confirmed! 🎉</h2>
+
+            <p>
+                Thank you for shopping with SoleStyle.
+            </p>
+
+            <p>
+                Your confirmation email has been sent.
+            </p>
+
+            <p class="order-number" id="order-number"></p>
+
+            <button onclick="location.reload()">
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
