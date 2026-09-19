@@ -1,0 +1,1311 @@
+ ```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: white;
+    background: #050416;
+    overflow-x: hidden;
+}
+
+
+/* ================= SKY ================= */
+
+.sky {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #25204f 0%,
+            #100d2d 38%,
+            #050416 100%
+        );
+}
+
+
+/* ================= MOON ================= */
+
+.moon {
+    position: absolute;
+
+    right: 8%;
+    top: 35px;
+
+    font-size: 75px;
+
+    filter:
+        drop-shadow(0 0 15px #fff3a8);
+
+    animation: moon 4s infinite alternate;
+}
+
+@keyframes moon {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+        filter:
+            drop-shadow(0 0 30px #fff3a8);
+    }
+}
+
+
+/* ================= STARS ================= */
+
+.star {
+    position: absolute;
+
+    color: #fff4a8;
+
+    animation:
+        twinkle 2s infinite alternate;
+}
+
+.s1 {
+    top: 10%;
+    left: 10%;
+    font-size: 25px;
+}
+
+.s2 {
+    top: 17%;
+    left: 25%;
+    font-size: 18px;
+    animation-delay: .5s;
+}
+
+.s3 {
+    top: 9%;
+    left: 47%;
+    font-size: 13px;
+    animation-delay: 1s;
+}
+
+.s4 {
+    top: 25%;
+    left: 68%;
+    font-size: 28px;
+    animation-delay: .3s;
+}
+
+.s5 {
+    top: 14%;
+    left: 88%;
+    font-size: 18px;
+    animation-delay: .8s;
+}
+
+.s6 {
+    top: 38%;
+    left: 15%;
+    font-size: 16px;
+    animation-delay: 1.4s;
+}
+
+.s7 {
+    top: 32%;
+    left: 83%;
+    font-size: 24px;
+    animation-delay: .6s;
+}
+
+.s8 {
+    top: 45%;
+    left: 40%;
+    font-size: 13px;
+    animation-delay: 1.8s;
+}
+
+.s9 {
+    top: 52%;
+    left: 92%;
+    font-size: 20px;
+    animation-delay: 1.1s;
+}
+
+@keyframes twinkle {
+
+    from {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+
+/* ================= FIREFLIES ================= */
+
+.firefly {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #fff69c;
+
+    box-shadow:
+        0 0 8px #fff69c,
+        0 0 20px #fff69c;
+
+    animation:
+        fireflyMove 5s infinite ease-in-out,
+        fireflyGlow 1.5s infinite alternate;
+}
+
+.f1 {
+    left: 8%;
+    top: 60%;
+}
+
+.f2 {
+    left: 18%;
+    top: 72%;
+    animation-delay: 1s;
+}
+
+.f3 {
+    left: 32%;
+    top: 65%;
+    animation-delay: 2s;
+}
+
+.f4 {
+    left: 48%;
+    top: 72%;
+    animation-delay: .5s;
+}
+
+.f5 {
+    left: 62%;
+    top: 62%;
+    animation-delay: 1.5s;
+}
+
+.f6 {
+    left: 74%;
+    top: 70%;
+    animation-delay: 2.5s;
+}
+
+.f7 {
+    left: 84%;
+    top: 58%;
+    animation-delay: .8s;
+}
+
+.f8 {
+    left: 92%;
+    top: 75%;
+    animation-delay: 1.7s;
+}
+
+.f9 {
+    left: 55%;
+    top: 50%;
+    animation-delay: 3s;
+}
+
+@keyframes fireflyMove {
+
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(25px, -30px);
+    }
+}
+
+@keyframes fireflyGlow {
+
+    from {
+        opacity: .2;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ================= INTRO ================= */
+
+.intro {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.small-stars {
+    font-size: 25px;
+    margin-bottom: 25px;
+
+    animation: float 3s infinite;
+}
+
+.whisper {
+    font-size: 15px;
+    letter-spacing: 3px;
+    opacity: .7;
+    margin-bottom: 20px;
+}
+
+.intro h1 {
+    font-size: clamp(38px, 8vw, 75px);
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 10px #ffb9e9,
+        0 0 35px #a98cff;
+
+    animation: float 4s infinite ease-in-out;
+}
+
+.intro-text {
+    max-width: 600px;
+
+    line-height: 1.8;
+
+    font-size: 18px;
+
+    opacity: .85;
+}
+
+.scroll-hint {
+    margin-top: 60px;
+
+    font-size: 14px;
+
+    opacity: .5;
+
+    animation: scrollHint 2s infinite;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes scrollHint {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+
+/* ================= PARTY ================= */
+
+.party {
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 80px 20px;
+}
+
+
+/* ================= BALLOONS ================= */
+
+.balloon {
+    position: fixed;
+
+    font-size: 40px;
+
+    z-index: 1;
+
+    animation: balloonFloat 6s infinite ease-in-out;
+
+    opacity: .8;
+}
+
+.balloon1 {
+    left: 3%;
+    bottom: 20%;
+}
+
+.balloon2 {
+    left: 12%;
+    bottom: 8%;
+    animation-delay: 1s;
+}
+
+.balloon3 {
+    right: 5%;
+    bottom: 15%;
+    animation-delay: 2s;
+}
+
+.balloon4 {
+    right: 14%;
+    bottom: 5%;
+    animation-delay: 3s;
+}
+
+.balloon5 {
+    left: 48%;
+    bottom: 3%;
+    animation-delay: 1.5s;
+}
+
+@keyframes balloonFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(5deg);
+    }
+}
+
+
+/* ================= BIRTHDAY ================= */
+
+.birthday {
+    text-align: center;
+
+    margin-bottom: 110px;
+}
+
+.little-title {
+    opacity: .7;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.birthday h2 {
+    font-size: clamp(35px, 7vw, 65px);
+
+    margin-bottom: 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd0f0,
+            #fff1a8,
+            #d4c0ff
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    animation: titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow {
+
+    from {
+        filter: drop-shadow(0 0 3px #ffb0df);
+    }
+
+    to {
+        filter: drop-shadow(0 0 20px #ffd6f2);
+    }
+}
+
+.message-card {
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3);
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+.message-card p {
+    margin: 20px 0;
+}
+
+.card-stars {
+    letter-spacing: 10px;
+    opacity: .7;
+}
+
+
+/* ================= CAKE ================= */
+
+.cake-area {
+    text-align: center;
+
+    margin-bottom: 110px;
+}
+
+.cake-area h2 {
+    margin-bottom: 30px;
+}
+
+.cake {
+    width: 250px;
+
+    margin: auto;
+
+    animation: cakeFloat 3s infinite ease-in-out;
+}
+
+.candle-row {
+    height: 65px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.candle {
+    width: 15px;
+
+    height: 45px;
+
+    border-radius: 5px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #ff86c8,
+            #ff86c8 6px,
+            white 6px,
+            white 11px
+        );
+}
+
+.candle span {
+    position: relative;
+
+    top: -25px;
+
+    font-size: 17px;
+
+    animation: flame 1s infinite alternate;
+}
+
+@keyframes flame {
+
+    from {
+        transform: scale(.8);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+.cake-top {
+    padding: 13px;
+
+    border-radius: 50% 50% 15px 15px;
+
+    background: #ff9fd8;
+
+    font-size: 20px;
+}
+
+.cake-middle {
+    height: 80px;
+
+    background: #ffb4df;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 60px;
+}
+
+.cake-bottom {
+    height: 45px;
+
+    background: #ef8cc9;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 0 0 20px 20px;
+}
+
+.plate {
+    width: 290px;
+
+    height: 12px;
+
+    margin-left: -20px;
+
+    background: #eeeeee;
+
+    border-radius: 50%;
+}
+
+.wish {
+    margin-top: 25px;
+
+    font-size: 19px;
+
+    opacity: .9;
+}
+
+@keyframes cakeFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* ================= GIFTS ================= */
+
+.gift-area {
+    text-align: center;
+
+    margin-bottom: 110px;
+}
+
+.gift-area h2 {
+    font-size: 32px;
+
+    margin-bottom: 12px;
+}
+
+.gift-area > p {
+    opacity: .7;
+
+    margin-bottom: 35px;
+}
+
+.gift-row {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+}
+
+.gift {
+    padding: 25px;
+
+    min-width: 150px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.07);
+
+    font-size: 55px;
+
+    animation: giftFloat 3s infinite ease-in-out;
+
+    transition: .3s;
+}
+
+.gift:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.gift small {
+    display: block;
+
+    font-size: 13px;
+
+    opacity: .7;
+
+    margin-top: 8px;
+}
+
+.gift:nth-child(2) {
+    animation-delay: .5s;
+}
+
+.gift:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes giftFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* ================= WISHES ================= */
+
+.wishes {
+    text-align: center;
+
+    margin-bottom: 110px;
+}
+
+.wishes h2 {
+    margin-bottom: 40px;
+}
+
+.people {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+}
+
+.person-card {
+    width: 270px;
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.07);
+
+    transition: .4s;
+}
+
+.person-card:hover {
+    transform: translateY(-10px);
+}
+
+.character {
+    font-size: 80px;
+
+    margin-bottom: 20px;
+
+    animation: characterBounce 2s infinite;
+}
+
+.person-card:nth-child(2) .character {
+    animation-delay: .5s;
+}
+
+.person-card:nth-child(3) .character {
+    animation-delay: 1s;
+}
+
+.bubble {
+    background: white;
+
+    color: #282039;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    line-height: 1.6;
+
+    position: relative;
+}
+
+.bubble::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 12px solid white;
+}
+
+@keyframes characterBounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+
+/* ================= CAT-MAN ================= */
+
+  .catman {
+    min-height: 500px;
+    margin-bottom: 110px;
+    padding: 100px 20px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(180, 20, 70, .35),
+            transparent 70%
+        );
+}
+
+
+/* ================= BIG HANGING PAW ================= */
+
+.hanging-paw {
+    position: absolute;
+
+    top: -25px;
+    left: 8%;
+
+    font-size: 110px;
+
+    transform: rotate(-20deg);
+
+    filter:
+        drop-shadow(0 0 10px rgba(255, 180, 220, .7));
+
+    animation: pawSwing 3s ease-in-out infinite;
+}
+
+@keyframes pawSwing {
+
+    0%, 100% {
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+}
+
+
+/* ================= CAT ================= */
+
+.cat {
+    font-size: 90px;
+    margin-bottom: 25px;
+
+    animation: catFloat 3s ease-in-out infinite;
+}
+
+@keyframes catFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* ================= CAT TEXT BOX ================= */
+
+.cat-text {
+    max-width: 750px;
+    margin: 0 auto;
+
+    padding: 35px 30px;
+
+    border-radius: 30px;
+
+    background: rgba(20, 5, 30, .72);
+
+    border: 2px solid rgba(255, 180, 220, .55);
+
+    box-shadow:
+        0 0 20px rgba(255, 100, 180, .25),
+        inset 0 0 25px rgba(180, 20, 70, .15);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* ================= TEXT ================= */
+
+.cat-text h2 {
+    margin-bottom: 20px;
+
+    font-size: 28px;
+
+    text-shadow:
+        0 0 10px rgba(255, 180, 220, .8);
+}
+
+.cat-text p {
+    line-height: 1.8;
+    margin: 15px auto;
+}
+
+.cat-text strong {
+    display: block;
+
+    margin-top: 25px;
+
+    font-size: 20px;
+
+    text-shadow:
+        0 0 10px rgba(255, 200, 230, .8);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .catman {
+        padding: 90px 15px 50px;
+    }
+
+    .hanging-paw {
+        font-size: 75px;
+        left: 3%;
+        top: -15px;
+    }
+
+    .cat {
+        font-size: 70px;
+    }
+
+    .cat-text {
+        padding: 25px 18px;
+    }
+
+    .cat-text h2 {
+        font-size: 22px;
+    }
+
+    .cat-text p {
+        font-size: 15px;
+    }
+
+    .cat-text strong {
+        font-size: 18px;
+    }
+}
+
+.hanging-web {
+    position: absolute;
+
+    right: 15px;
+    top: -15px;
+
+    font-size: 80px;
+
+    animation: webSwing 3s infinite;
+}
+
+.spider {
+    font-size: 100px;
+
+    animation: spiderSwing 2s infinite ease-in-out;
+}
+
+.spidey-text h2 {
+    margin: 20px 0;
+
+    font-size: 30px;
+}
+
+.spidey-text p {
+    margin: 10px;
+
+    opacity: .8;
+}
+
+.spidey-text strong {
+    display: block;
+
+    margin-top: 20px;
+
+    font-size: 20px;
+}
+
+@keyframes webSwing {
+
+    0%, 100% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes spiderSwing {
+
+    0%, 100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-12px);
+    }
+}
+
+
+/* ================= LANTERNS ================= */
+
+.lantern-night {
+    min-height: 450px;
+
+    position: relative;
+
+    text-align: center;
+
+    padding: 90px 20px;
+
+    margin-bottom: 80px;
+
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,180,70,.13),
+            transparent 65%
+        );
+}
+
+.lantern {
+    position: absolute;
+
+    font-size: 55px;
+
+    animation: lanternFloat 4s infinite ease-in-out;
+}
+
+.lantern.left {
+    left: 8%;
+    top: 40px;
+}
+
+.lantern.right {
+    right: 8%;
+    top: 70px;
+
+    animation-delay: 1s;
+}
+
+.lantern.center {
+    left: 47%;
+    bottom: 25px;
+
+    animation-delay: 2s;
+}
+
+.lantern-night h2 {
+    font-size: 32px;
+
+    margin-bottom: 20px;
+}
+
+.lantern-night p {
+    max-width: 600px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    opacity: .8;
+}
+
+.lantern-line {
+    margin-top: 80px;
+
+    font-size: 38px;
+
+    filter:
+        drop-shadow(0 0 10px #ffb347);
+
+    animation: lanternGlow 2s infinite alternate;
+}
+
+@keyframes lanternFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+@keyframes lanternGlow {
+
+    from {
+        filter:
+            drop-shadow(0 0 4px #ffb347);
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 22px #ffd17a);
+    }
+}
+
+
+/* ================= FINAL ================= */
+
+.final {
+    min-height: 500px;
+
+    padding: 90px 20px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,130,205,.17),
+            transparent 65%
+        );
+}
+
+.fireworks {
+    font-size: 45px;
+
+    margin-bottom: 25px;
+
+    animation: fireworks 2s infinite;
+}
+
+.final h1 {
+    font-size: clamp(35px, 8vw, 75px);
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 10px #ffb3df,
+        0 0 35px #bd9dff;
+
+    animation: finalGlow 2s infinite alternate;
+}
+
+.final-message {
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    opacity: .9;
+}
+
+.final-icons {
+    margin: 45px 0;
+
+    font-size: 30px;
+
+    letter-spacing: 6px;
+
+    animation: float 3s infinite;
+}
+
+.ending {
+    font-size: 14px;
+
+    opacity: .55;
+
+    margin-top: 50px;
+}
+
+@keyframes fireworks {
+
+    0%, 100% {
+        transform: scale(.8);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes finalGlow {
+
+    from {
+        filter: drop-shadow(0 0 4px #ff9fd9);
+    }
+
+    to {
+        filter: drop-shadow(0 0 25px #d1b2ff);
+    }
+}
+
+
+/* ================= CONFETTI ================= */
+
+.confetti {
+    position: fixed;
+
+    top: -30px;
+
+    left: 0;
+
+    width: 100%;
+
+    font-size: 25px;
+
+    word-spacing: 30px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation: confettiFall 8s linear infinite;
+}
+
+@keyframes confettiFall {
+
+    from {
+        transform: translateY(-50px);
+    }
+
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .moon {
+        font-size: 55px;
+        top: 20px;
+        right: 4%;
+    }
+
+    .intro {
+        padding: 20px;
+    }
+
+    .intro h1 {
+        font-size: 42px;
+    }
+
+    .intro-text {
+        font-size: 16px;
+    }
+
+    .party {
+        padding: 60px 15px;
+    }
+
+    .message-card {
+        padding: 25px 18px;
+        font-size: 15px;
+    }
+
+    .cake {
+        transform: scale(.85);
+    }
+
+    .gift {
+        min-width: 130px;
+    }
+
+    .person-card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .hanging-web {
+        font-size: 55px;
+    }
+
+    .spider {
+        font-size: 75px;
+    }
+
+    .lantern {
+        font-size: 42px;
+    }
+
+    .lantern-night h2 {
+        font-size: 25px;
+    }
+
+    .balloon {
+        font-size: 30px;
+    }
+
+}
+```
